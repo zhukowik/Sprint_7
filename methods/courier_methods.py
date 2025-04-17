@@ -7,11 +7,10 @@ fake = Faker()
 
 class CourierMethods:
     @staticmethod
-    def create_new_courier():
-        payload = GeneratePayload.generate_courier_payload()
-        login = payload["login"]
-        password = payload["password"]
-        first_name = payload["firstName"]
+    def create_new_courier(payload):
+        login = payload['login']
+        password = payload['password']
+        first_name = payload['firstName']
         return requests.post(Url.CREATE_COURIER, data=payload), login, password, first_name
 
     @staticmethod
